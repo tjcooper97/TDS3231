@@ -41,8 +41,7 @@ bool TDS3231::begin(TwoWire *wireInstance) {
 
 
 Ds3231SqwPinMode TDS3231::readSqwPinMode() {
-  int mode;
-  mode = _readregister(DS3231_CONTROL) & 0x1C;
+  int mode = _readregister(DS3231_CONTROL) & 0x1C;
   if (mode & 0x04) { mode = DS3231_OFF; };
   return static_cast<Ds3231SqwPinMode>(mode);
 }
